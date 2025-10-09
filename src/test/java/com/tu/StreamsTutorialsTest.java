@@ -61,4 +61,34 @@ class StreamsTutorialsTest {
         long expected = 1;
         assertEquals(expected, count);
     }
+
+    @Test
+    public void testToUpperCase() {
+        List<String> sentences = new ArrayList<>();
+        sentences.add("A man with a hat");
+        sentences.add("The man has a hat and a bat");
+        sentences.add("Another man with a soccer ball");
+
+        StreamsTutorials streamsTutorials = new StreamsTutorials();
+        List<String> expectedOutput = new ArrayList<>();
+        expectedOutput.add("A MAN WITH A HAT");
+        expectedOutput.add("THE MAN HAS A HAT AND A BAT");
+        expectedOutput.add("ANOTHER MAN WITH A SOCCER BALL");
+        List<String> upperCasedStrings = streamsTutorials.upperCaseString(sentences);
+        assertIterableEquals(expectedOutput, upperCasedStrings);
+    }
+
+    @Test
+    public void testGetDistinct() {
+        int[] input = {1, 2, 3, 3, 3, 3, 3};
+
+        StreamsTutorials streamsTutorials = new StreamsTutorials();
+        List<Integer> distinctNumbers = streamsTutorials.distinctNumber(input);
+        List<Integer> expectedOutput = new ArrayList<>();
+        expectedOutput.add(1);
+        expectedOutput.add(2);
+        expectedOutput.add(3);
+
+        assertIterableEquals(expectedOutput, distinctNumbers);
+    }
 }

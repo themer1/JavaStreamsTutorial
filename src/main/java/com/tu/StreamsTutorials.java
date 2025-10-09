@@ -1,5 +1,6 @@
 package com.tu;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,4 +32,24 @@ public class StreamsTutorials {
                 .filter(x -> x != null && !x.isEmpty() && x.charAt(0) == startingCharacter)
                 .count();
     }
+
+    /*
+     * Given a list of String, construct a new list where every string is in upper case
+     */
+
+    public List<String> upperCaseString(List<String> input) {
+        return input.stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+    }
+
+    /*
+     * Given a list of numbers, return a list of distinct numbers from original list.
+     */
+
+    public List<Integer> distinctNumber(int[] input) {
+        return Arrays.stream(input).distinct().
+                boxed().collect(Collectors.toList());
+    }
+
 }
